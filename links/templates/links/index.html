@@ -1,0 +1,21 @@
+{% extends 'links/_base.html' %}
+
+{% block content %}
+<div class="container mx-auto mt-10">
+    <h1 class="text-3xl font-semibold mb-5">Links</h1>
+
+    {% for link in links %}
+    <div class="bg-white p-4 rounded-md mb-4">
+        <h2 class="text-xl font-semibold mb-2">{{ link.name }}</h2>
+        <p class="text-gray-600 mb-2">{{ link.url }}</p>
+        <p class="text-gray-500">Clicks: {{ link.clicks }}</p>
+        <button class="bg-blue-500 text-white px-3 py-1 rounded mt-2" onclick="clickLink('{{ link.slug }}')">Click me</button>
+    </div>
+    <div class="flex justify-between items-center">
+        <p><a class="underline text-blue-700" href="{{ link.url }}" target="_blank">Visit link</a></p>
+        <p class="underline text-blue-700"><a target="_blank" href="{% url 'root-link' link.slug %}">Open /{{ link.slug }}</a></p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}
+

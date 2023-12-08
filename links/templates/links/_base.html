@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 font-sans">
+    <header class="bg-white border-b border-gray-300">
+        <div class="container mx-auto flex flex-wrap items-center justify-between py-4">
+            <a href="{% url 'home' %}" class="text-xl font-medium text-gray-800">
+                Link.ly
+            </a>
+            <nav class="flex items-center space-x-4">
+                <a href="{% url 'home' %}" class="hover:text-gray-900">All Links</a>
+            </nav>
+            <a href="{% url 'create-link' %}">
+                <button class="inline-flex items-center bg-blue-500 text-white border-0 py-2 px-4 rounded">
+                    Add link
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 ml-2" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                    </svg>
+                </button>
+            </a>
+        </div>
+    </header>
+    {% block content %}
+    
+    {% endblock content %}
+</body>
+
+</html>
